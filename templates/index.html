@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Recommendations</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center text-danger mb-4">Movie Recommendations</h1>
+        <form method="POST" action="/recommend" class="mb-5">
+            <div class="form-group">
+                <label for="movieSelect" class="text-light">Select a movie:</label>
+                <select class="form-control" id="movieSelect" name="movie">
+                    {% for movie in movies %}
+                        <option value="{{ movie.movieId }}">{{ movie.title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-danger btn-block">Get Recommendations</button>
+        </form>
+        {% if recommendations %}
+            <h2 class="text-light mb-4">Recommendations:</h2>
+            <div class="row">
+                {% for movie in recommendations %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card bg-dark">
+                            <div class="card-body">
+                                <h5 class="card-title text-danger">{{ movie.title }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-light">No recommendations to show.</p>
+        {% endif %}
+    </div>
+
+    <!-- Include jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
