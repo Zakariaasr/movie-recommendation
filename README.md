@@ -1,5 +1,6 @@
 # Real-Time Movie Recommendation System - Project README
 
+<img width="6003" alt="Untitled" src="https://github.com/Zakariaasr/movie-recommendation/assets/102974751/bd86179c-ecc5-4f56-8f68-bc556cc9ed28">
 
 ## Introduction
 This project presents a real-time movie recommendation system using Apache Kafka for message handling, Apache Spark for processing large-scale data, and Flask for creating a web application interface. The system leverages collaborative filtering with the ALS (Alternating Least Squares) algorithm to provide movie recommendations based on user ratings.
